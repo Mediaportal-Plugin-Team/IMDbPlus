@@ -113,7 +113,7 @@
 			(<imdbplus[^>]*>)(?:[\r\n\t\s\v]*(?:<set[\t\s]+id="\d+"[\t\s]+name="global_options_[^"]+"[\t\s]+value="(?:true|false|[\w-]{4,})"[\t\s]*/>|<set[\t\s]+id="9[47]"[\t\s]+name="global_options_(?:english_movie_rating|secondary_details)"[\t\s]+value="\d{2}"[\t\s]*/>|<set[\t\s]+id="9[89]"[\t\s]+name="global_options_(?:country|language)_filter"[\t\s]+value="(?:\w{2}[|]?)*"[\t\s]*/>|<set[\t\s]+id="\d+"[\t\s]+name="[^_]+_options_sync_[^"]+"[^>]+>))*[\r\n\t\s\v]*</imdbplus>
 			]]>
 		</set>
-		<retrieve name="file" file="C:\Options IMDb+ Scraper.xml" encoding="UTF-8" />
+		<retrieve name="file" file="C:\ProgramData\Team MediaPortal\MediaPortal\IMDb+\Options IMDb+ Scraper.xml" encoding="UTF-8" />
 		<parse name="fileCheck" input="${file}" regex="${rx_file_check}" />
 		<if test="${fileCheck.count}>0">
 			<if test="${fileCheck[0][0]}!=">
@@ -425,7 +425,7 @@
 					</set>
 					<set name="rx_directors">
 						<![CDATA[
-						<a\s+(?:onclick="[^"]+"\s*)?(?:class="[^"]+" rel="[^"]*" )?href="/name/nm\d+[^"]+"[^>]*>(?:<span[^>]+>)?\s*(?<movieDirectors>[^<]+)(?:</span>)?</a>
+						<a[^/]+/name/nm\d+[^/]+/\?ref_=tt_ov_dr"+>(?<movieDirectors>[^<]+)</a>
 						]]>
 					</set>
 					<parse name="directors_block" input="${details_page}" regex="${rx_directors_block}" />
@@ -441,19 +441,19 @@
 						</loop>
 					</if>
 				</if>
-
+					
 				<if test="${movie.writers}="><set name="update_writers" value="true" /><set name="new_import" value="true" /></if>
 				<if test="${global_options_refresh_all_fields}=true"><set name="update_writers" value="true" /></if>
 				<if test="${update_writers}=true">
 					<!-- Writers -->
 					<set name="rx_writers_block">
 						<![CDATA[
-						Writer[s]?(?::\s*</h4>[^<]*(?<writers_block>.*?)</div>|</span><div[^>]+><ul[^>]+>(?<writers_block>.*?)</ul>)
+						"writer",[^:]+:"CreditCategory"},"credits"\:\[(?<writers_block>.*?)]
 						]]>
 					</set>
 					<set name="rx_writers">
 						<![CDATA[
-						<a\s+(?:onclick="[^"]+"\s*)?(?:class="[^"]+" rel="[^"]*" )?href="/name/nm\d+[^"]+"[^>]*>(?:<span[^>]+>)?\s*(?<movieWriters>[^<]+)(?:</span>)?</a>
+						"name":{"nameText":{"text":"(?<movieWriters>.+?)"
 						]]>
 					</set>
 					<parse name="writers_block" input="${details_page}" regex="${rx_writers_block}" />
@@ -567,12 +567,12 @@
 					<if test="${global_options_secondary_details}&lt;=6">
 						<set name="rx_genres_block">
 							<![CDATA[
-							Genre[s]?(?::[^<]*</h4>(?<genres_block>.+?)</div>|</span><div[^>]+><ul[^>]+>(?<genres_block>.*?)</ul>)
+							"genres":{"genres":\[+(?<genres_block>.*?)\]
 							]]>
 						</set>
 						<set name="rx_genres">
 							<![CDATA[
-							<a(?:(?:[^=]+=){1,3})"/search/title/\?genre[^"]+"[^>]*\s*>\s*(?<movieGenres>.+?)</a>
+							{"text":"(?<movieGenres>.+?)"
 							]]>
 						</set>
 						<parse name="genres_block" input="${details_page}" regex="${rx_genres_block}" />
@@ -716,15 +716,15 @@
 					<!-- Runtime -->
 					<set name="rx_runtime">
 						<![CDATA[
-						<h4[^>]+>Runtime:</h4>\s*<time[^>]+>(?<movieRuntime>\d+) min\s*</time>|(?<movieRuntimeHours>\d+)h\s*(?<movieRuntimeMinutes>\d+)min\s*</
+						<div class="ipc-metadata-list-item__content-container">(?<movieRuntimeHours>\d+)+[^h]+h+[^>]+>+[^>]+>(?<movieRuntimeMinutes>\d+)+[^m]+m
 						]]>
 					</set>
 					<parse name="runtime" input="${details_page}" regex="${rx_runtime}" />
 					<!-- Fix a 1h30m runtime into 90 minutes -->
-					<if test="${runtime[0][1]:htmldecode}!=">
-						<if test="${runtime[0][2]:htmldecode}!=">
-							<multiply name="fix_hours_in_min" value1="${runtime[0][1]:htmldecode}" value2="60" result_type="int" />
-							<add name="runtime[0][0]" value1="${fix_hours_in_min}" value2="${runtime[0][2]:htmldecode}" />
+					<if test="${runtime[0][0]:htmldecode}!=">
+						<if test="${runtime[0][1]:htmldecode}!=">
+							<multiply name="fix_hours_in_min" value1="${runtime[0][0]:htmldecode}" value2="60" result_type="int" />
+							<add name="runtime[0][0]" value1="${fix_hours_in_min}" value2="${runtime[0][1]:htmldecode}" />
 						</if>
 					</if>
 					<set name="movie.runtime" value="${runtime[0][0]:htmldecode}" />
@@ -735,26 +735,33 @@
 					<!-- Tagline -->
 					<set name="rx_tagline">
 						<![CDATA[
-						Tagline[s]?(?::</h4>[\s\f\r]*|</span><div[^>]+><div[^>]+><ul[^>]+><li[^>]+><span[^>]+>)(?<movieTagline>[^<]+)
+						"section":{+[^,]+,+[^:]+:"(?<movieTagline>.+?)"
 						]]>
 					</set>
-					<parse name="tagline" input="${details_page}" regex="${rx_tagline}" />
-					<set name="tagline_clean" value="${tagline[0][0]:striptags}" />
+					
+					<retrieve name="taglines_page" url="${site}taglines/" encoding="UTF-8" />
+					<parse name="tagline" input="${taglines_page}" regex="${rx_tagline}" />
+					<if test="${tagline}=">
+						<log LogLevel="Warn" Message="IMDb+ FAILURE READING = ${site}taglines/" />
+					</if>
+					<replace name="tagline_fix" input="${tagline[0][0]}" pattern="\\u0026" with="" />
+					<replace name="tagline_clean" input="${tagline_fix}" pattern="\\u0027|#39;" with="'" />
+						<log LogLevel="Warn" Message="Tagline = ${tagline_clean}" />
 					<set name="movie.tagline" value="${tagline_clean:htmldecode}" />
 				</if>
-
+				
 				<if test="${global_options_refresh_all_fields}=true"><set name="update_plotkeywords" value="true" /></if><if test="${movie.plotkeywords}="><set name="update_plotkeywords" value="true" /></if>
 				<if test="${update_plotkeywords}=true">
 					<!-- Plot Keywords -->
 					<set name="rx_plotkeywords">
 						<![CDATA[
-						<h4[^>]+>Plot Keywords:</h4>\s*(?<moviePlotKeywords>.+?)(?:&nbsp;|<nobr>|See more|</div>)|"keywords":"(?<moviePlotKeywords>[^"]+)"
+						"keywords":"(?<moviePlotKeywords>.+?)"
 						]]>
 					</set>
 					<parse name="plotkeywords" input="${details_page}" regex="${rx_plotkeywords}" />
 					<replace name="plotkeywords_fix" input="${plotkeywords[0][0]:htmldecode}" pattern="," with="|" />
-					<set name="plotkeywords_clean" value="|${plotkeywords_fix[0][0]:striptags}|" />
-					<replace name="movie.plotkeywords" input="${plotkeywords_clean}" pattern="\s*[|]+\s*" with="|" />
+					<!-- <set name="plotkeywords_clean" value="|${plotkeywords_fix[0][0]:striptags}|" /> -->
+					<replace name="movie.plotkeywords" input="${plotkeywords_fix}" pattern="\s*[|]+\s*" with="|" />
 				</if>
 
 				<if test="${global_options_refresh_all_fields}=true"><set name="update_language" value="true" /></if><if test="${movie.language}="><set name="update_language" value="true" /></if>
@@ -768,13 +775,14 @@
 					<if test="${rx_language}=">
 						<set name="rx_language">
 							<![CDATA[
-							<h4[^>]+>Language:</h4>\s*(?<movieLanguage>.+?)(?:&nbsp;|<nobr>|See more|</div>)|Language</span><div[^>]+><ul[^>]+>(?<movieLanguage><li[^>]+><a[^>]+>[^<]+</a></li>){1,}
+							<a[^;]+;primary_language+[^"]+tt_dt_ln">(?<movieLanguage>.+?)</a>
 							]]>
 						</set>
 						<parse name="language" input="${details_page}" regex="${rx_language}" />
 						<replace name="language_fix" input="${language[0][0]:htmldecode}" pattern="&lt;/a&gt;&lt;/li&gt;&lt;li" with="|&lt;li" />
-						<set name="language_clean" value="|${language_fix[0][0]:striptags}|" />
-						<replace name="movie.language" input="${language_clean:htmldecode}" pattern="\s*[|]+\s*" with="|" />
+						<!-- <set name="language_clean" value="|${language_fix[0][0]:striptags}|" /> -->
+						<replace name="movie.language" input="${language_fix:htmldecode}" pattern="\s*[|]+\s*" with="|" />
+						
 					</if>
 				</if>
 
@@ -782,7 +790,7 @@
 				<!-- USA/MPAA default certification expression -->
 				<set name="rx_certification">
 					<![CDATA[
-					(?:>\s*USA:|United States:|Rated\s*)(?<movieCertification>(?:Not Rated)|(?:Unrated)|(?:G)|(?:PG)|(?:PG-13)|(?:R)|(?:X)|(?:NC-17))(?:</a>|\s*for)|<meta itemprop="contentRating" content="(?<movieCertification>[^"]+)">|"ContentRating":\s*"(?<movieCertification>[^"]+)"|<h4[^<]+>Certificate:</h4>\s*<span>(?<movieCertification>[^<]+)</span>
+					/parentalguide/certificates\?ref_=tt_ov_pg">(?<movieCertification>[^<]+)<
 					]]>
 				</set>
 				<if test="${global_options_english_movie_rating}&lt;=1">
@@ -961,12 +969,12 @@
 					<if test="${global_options_secondary_details}&lt;=6">
 						<set name="rx_plot">
 							<![CDATA[
-							<h4[^>]+>Summaries</h4>\s*<ul[^>]+>\s*<li[^>]+>\s*<p>(?<moviePlotLong>.+?)\s*<div|<h2>Storyline</h2>\s*<div[^>]*>\s*<p>\s*<span[^>]+>\s*(?<moviePlotLong>.+?)</span>
+							"plot":{+[^:]+:+[^:]+:"(?<moviePlotLong>.+?)"
 							]]>
 						</set>
 						<set name="rx_plot2">
 							<![CDATA[
-							<p itemprop="description">\s*(?<moviePlotShort>(?!\s*<a[^>]+>Add a Plot</a>).+?)(?:\s*<a[^>]+>See full [^<]+</a>(?:\w+)*)?\s*</p>|<div class="summary_text"[^>]*>(?:\s*<em>[^>]+>\s*is a movie(?:[^,]+,){1,2}[^.]+.)?\s*(?<moviePlotShort>(?!\s*<a[^>]+>Add a Plot</a>).+?)(?:\s*<a[^>]+>See full [^<]+</a>[^<]*)?\s*</div|<h4[^>]+>Summaries</h4>\s*<ul[^>]+>\s*<li[^>]+>\s*<p>(?<moviePlotShort>.+?)</p>|"description":"(?<moviePlotShort>[^"]+)"
+							"plot":{+[^:]+:+[^:]+:"(?<moviePlotShort>.+?)"
 							]]>
 						</set>
 					</if>
@@ -1045,19 +1053,19 @@
 				<!-- Get imdb + metacritics votes/scores and fix to a scale of 10 if needed -->
 				<set name="rx_imdb_votes">
 					<![CDATA[
-					title="(?<imdbScore>\d+(?:.\d+)?) based on (?<imdbPopularity>[^\s]+) user ratings"(?:.+?<div class="metacriticScore[^"]+">\s*<span>(?<metaScore>\d+)</span>.+?>(?<metaPopularity>[^\s]+) crit[^<]+</a>)?|"aggregateRating":\{"@type":"AggregateRating","ratingCount":(?<imdbPopularity>\d+),"bestRating":\d+,"worstRating":\d+,"ratingValue":(?<imdbScore>\d+(?:.\d+)?)}.+?<span[^>]+>(?<metaPopularity>\d+)</span><span[^>]+>Critic reviews</span></span></a></li><li[^>]+><a[^>]+><span[^>]+><span[^>]+><span[^>]+>(?<metaScore>\d+)</span></span><span[^>]+>Metascore</span>
+					"aggregateRating":\{"@type":"AggregateRating","ratingCount":(?<imdbPopularity>\d+),"bestRating":\d+,"worstRating":\d+,"ratingValue":(?<imdbScore>\d+(?:.\d+)?)}|"metacritic":{"metascore":{"score":(?<metaScore>\d+),
 					]]>
 				</set>
 				<parse name="imdb_votes" input="${details_page}" regex="${rx_imdb_votes}" />
-				<set name="imdb_score" value="${imdb_votes[0][0]:htmldecode}" />
-				<replace name="imdb_votes_clean" input="${imdb_votes[0][1]:htmldecode}" pattern="[\,\.]" with='' />
+				<replace name="imdb_votes_clean" input="${imdb_votes[0][0]:htmldecode}" pattern="[\,\.]" with='' />
+				<set name="imdb_score" value="${imdb_votes[0][1]:htmldecode}" />
 				<if test="${math_node_test}=9.99">
 					<if test="${imdb_votes[0][2]:htmldecode}>0">
 						<divide name="metascore_score" value1="${imdb_votes[0][2]:htmldecode}" value2="10" result_type="float" />
 					</if>
 					<replace name="metascore_votes_clean" input="${imdb_votes[0][3]:htmldecode}" pattern="[\,\.]" with='' />
 				</if>
-
+				
 				<!-- Fix empty votes to make the math 'add' node for popularity not freak out later on -->
 				<if test="${imdb_votes_clean}&lt;=0">
 					<set name="imdb_votes_clean" value="0" />
@@ -1551,7 +1559,7 @@
 					"[\t\s]+(?:title="(?<renameTitle>[^"]+)")?(?:[\t\s]*foreign="(?<renameForeign>[^"]+)")?(?:[\t\s]*sortby="(?<renameSortBy>[^"]+)")?(?:[\t\s]*collection="(?<renameCollection>[^"]+)")?[\t\s]*/>
 					]]>
 				</set>
-				<retrieve name="file" file="C:\Rename dBase IMDb+ Scraper.xml" encoding="UTF-8" />
+				<retrieve name="file" file="C:\ProgramData\Team MediaPortal\MediaPortal\IMDb+\Rename dBase IMDb+ Scraper.xml" encoding="UTF-8" />
 				<parse name="fileRename" input="${file}" regex="${rx_rename_check_prefix}${movie.imdb_id}${rx_rename_check_postfix}" />
 				<if test="${fileRename.count}=1">
 					<if test="${fileRename[0][3]}!=">
@@ -1627,7 +1635,7 @@
 					"[\t\s]+(?:title="(?<renameTitle>[^"]+)")?(?:[\t\s]*sortby="(?<renameSortBy>[^"]+)")?(?:[\t\s]*collection="(?<renameCollection>[^"]+)")?[\t\s]*/>
 					]]>
 				</set>
-				<retrieve name="file" file="C:\Rename dBase IMDb+ Scraper (Custom).xml" encoding="UTF-8" />
+				<retrieve name="file" file="C:\ProgramData\Team MediaPortal\MediaPortal\IMDb+\Rename dBase IMDb+ Scraper (Custom).xml" encoding="UTF-8" />
 				<parse name="fileRename" input="${file}" regex="${rx_rename_check_prefix}${movie.imdb_id}${rx_rename_check_postfix}" />
 				<if test="${fileRename.count}=1">
 					<!-- Prevent title from getting cleared if only the sortby field is being adjusted -->
@@ -1729,7 +1737,7 @@
 
 				<set name="rx_details_page_block">
 					<![CDATA[
-					<title>(?:&#x27;)?.+?(?:&#x27;)?\s*\(\D*\d{4}[^)]*\).*?</title>.+</body>
+					href="/title/(?<movieIMDB>.+?)/
 					]]>
 				</set>
 				<set name="rx_search_results">
@@ -1744,28 +1752,34 @@
 				</set>
 
 				<!-- Retrieve results using just "Title" -->
-				<retrieve name="search_page" url="https://www.imdb.com/find?s=tt&amp;q=${search.title:safe(UTF-8)}" encoding="UTF-8" />
+				<retrieve name="search_page" url="https://www.imdb.com/find/?s=tt&amp;q=${search.title:safe(UTF-8)}%20(${search.year})" encoding="UTF-8" />
 
 				<parse name="details_page_block" input="${search_page}" regex="${rx_details_page_block}" />
-				<!-- loop gets skipped if no match is found -->
-				<loop name="details_page_verified" on="details_page_block" limit="99">
-					<add name="counter" value1="${count}" value2="${offset}" />
-					<parse name="imdb_results" input="${details_page_verified}" regex="${rx_imdb_results}" />
-					<set name="movie[${counter}].title" value="${imdb_results[0][0]:htmldecode}" />
-					<set name="movie[${counter}].year" value="${imdb_results[0][1]:htmldecode}" />
-					<set name="movie[${counter}].imdb_id" value="${imdb_results[0][2]}" />
-					<set name="movie[${counter}].site_id" value="${imdb_results[0][2]}" />
+				<set name="search.imdb_id" value="${details_page_block[0][0]:htmldecode}" />
 
-					<!-- AKA page --> 
-					<retrieve name="aka_page" url="https://www.imdb.com/title/${imdb_results[0][2]}/releaseinfo" encoding="UTF-8" />
-					<parse name="akas" input="${aka_page}" regex="${rx_aka_details}" />
-					<set name="movie[${counter}].alternate_titles" value="|" />
-					<loop name="currAka" on="akas" limit="50">
-						<set name="movie[${counter}].alternate_titles" value="${movie[${counter}].alternate_titles}${currAka[0]:htmldecode}|" />
-					</loop>
+				<!-- Retrieve result using IMDB id (if provided) -->
+				<if test="${search.imdb_id}!=">
+					<retrieve name="imdb_page" url="https://www.imdb.com/title/${search.imdb_id}/" encoding="UTF-8" />
+					<parse name="imdb_results" input="${imdb_page}" regex="${rx_imdb_results}" />
+					<if test="${imdb_results[0][2]}!=">
+						<!-- Direct match found, let's get the results and be done with it -->
+						<set name="movie[0].title" value="${imdb_results[0][0]:htmldecode}" />
+						<set name="movie[0].year" value="${imdb_results[0][1]:htmldecode}" />
+						<set name="movie[0].imdb_id" value="${imdb_results[0][2]:htmldecode}" />
+						<set name="movie[0].site_id" value="${imdb_results[0][2]:htmldecode}" />
+						<set name="movie[0].popularity" value="100" />
 
-					<subtract name="movie[${counter}].popularity" value1="100" value2="${counter}" />
-				</loop>
+						<!-- Compensating for bug (ahem changes) in Moving-Pictures auto-approval system -->
+						<set name="movie[0].alternate_titles" value="${search.title}" />
+
+						<log LogLevel="Debug" Message="IMDb+ Scraper: Direct match found for [${search.imdb_id}] as: '${movie[0].title} (${movie[0].year})'" />
+						<if test="${force_imdb_match}=true">
+							<set name="movie[0].title" value="${search.title}" />
+							<log LogLevel="Debug" Message="IMDb+ Scraper: Forcing title as '${search.title}' to make auto-approve work and then we fix title later" />
+						</if>
+					</if>
+				</if>
+
 
 				<!-- No sense looking up any other movie if we found a details page already -->
 				<if test="${movie[0].site_id}=">

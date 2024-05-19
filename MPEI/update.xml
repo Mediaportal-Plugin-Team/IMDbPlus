@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ExtensionCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ExtensionCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Items>
     <PackageClass>
       <Version>2.0</Version>
@@ -48,20 +48,21 @@
             <Type>MediaPortal</Type>
             <Id />
             <MinVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MinVersion>
             <MaxVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MaxVersion>
             <WarnOnly>false</WarnOnly>
             <Message>Minimum requirements not met! Please upgrade to MediaPortal 1.2 before installing IMDb+ plugin.</Message>
             <Name>MediaPortal</Name>
+            <Condition>None</Condition>
           </DependencyItem>
         </Items>
       </Dependencies>
@@ -99,8 +100,9 @@
         <VersionDescription>Auto-update system for the IMDb+ scraper script</VersionDescription>
         <DevelopmentStatus>Stable</DevelopmentStatus>
         <OnlineLocation>http://imdbplus.googlecode.com/files/imdbplus.plugin.v1.0.0.99.mpe1</OnlineLocation>
-        <ReleaseDate>2011-10-08T20:37:25.3223687-04:00</ReleaseDate>
+        <ReleaseDate>2011-10-09T00:37:25.3223687+00:00</ReleaseDate>
         <Tags>moving pictures, movies, scraper</Tags>
+        <PlatformCompatibility>x86</PlatformCompatibility>
         <Location>.\Release\imdbplus.plugin.v[Version].mpe1</Location>
         <Params>
           <Items>
@@ -192,20 +194,21 @@
             <Type>MediaPortal</Type>
             <Id />
             <MinVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MinVersion>
             <MaxVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MaxVersion>
             <WarnOnly>false</WarnOnly>
             <Message>Minimum requirements not met! Please upgrade to MediaPortal 1.2 before installing IMDb+ plugin.</Message>
             <Name>MediaPortal</Name>
+            <Condition>None</Condition>
           </DependencyItem>
         </Items>
       </Dependencies>
@@ -245,6 +248,7 @@
         <OnlineLocation>http://imdbplus.googlecode.com/files/imdbplus.plugin.v1.2.0.133.mpe1</OnlineLocation>
         <ReleaseDate>2011-10-16T06:08:44</ReleaseDate>
         <Tags>moving pictures, movies, scraper</Tags>
+        <PlatformCompatibility>x86</PlatformCompatibility>
         <Location>.\Release\imdbplus.plugin.v[Version].mpe1</Location>
         <Params>
           <Items>
@@ -336,20 +340,21 @@
             <Type>MediaPortal</Type>
             <Id />
             <MinVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MinVersion>
             <MaxVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MaxVersion>
             <WarnOnly>false</WarnOnly>
             <Message>Minimum requirements not met! Please upgrade to MediaPortal 1.2 before installing IMDb+ plugin.</Message>
             <Name>MediaPortal</Name>
+            <Condition>None</Condition>
           </DependencyItem>
         </Items>
       </Dependencies>
@@ -392,6 +397,7 @@ Dutch language support for secondary scraper-script data.</VersionDescription>
         <OnlineLocation>http://imdbplus.googlecode.com/files/imdbplus.plugin.v1.3.0.180.mpe1</OnlineLocation>
         <ReleaseDate>2011-10-26T12:50:06</ReleaseDate>
         <Tags>moving pictures, movies, scraper</Tags>
+        <PlatformCompatibility>x86</PlatformCompatibility>
         <Location>.\Release\imdbplus.plugin.v[Version].mpe1</Location>
         <Params>
           <Items>
@@ -483,20 +489,21 @@ Dutch language support for secondary scraper-script data.</VersionDescription>
             <Type>MediaPortal</Type>
             <Id />
             <MinVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MinVersion>
             <MaxVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MaxVersion>
             <WarnOnly>false</WarnOnly>
             <Message>Minimum requirements not met! Please upgrade to MediaPortal 1.2 before installing IMDb+ plugin.</Message>
             <Name>MediaPortal</Name>
+            <Condition>None</Condition>
           </DependencyItem>
         </Items>
       </Dependencies>
@@ -536,6 +543,7 @@ Dutch language support for secondary scraper-script data.</VersionDescription>
         <OnlineLocation>http://imdbplus.googlecode.com/files/imdbplus.plugin.v1.3.0.183.mpe1</OnlineLocation>
         <ReleaseDate>2011-10-26T18:01:50</ReleaseDate>
         <Tags>moving pictures, movies, scraper</Tags>
+        <PlatformCompatibility>x86</PlatformCompatibility>
         <Location>.\Release\imdbplus.plugin.v[Version].mpe1</Location>
         <Params>
           <Items>
@@ -627,20 +635,21 @@ Dutch language support for secondary scraper-script data.</VersionDescription>
             <Type>MediaPortal</Type>
             <Id />
             <MinVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MinVersion>
             <MaxVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MaxVersion>
             <WarnOnly>false</WarnOnly>
             <Message>Minimum requirements not met! Please upgrade to MediaPortal 1.2 before installing IMDb+ plugin.</Message>
             <Name>MediaPortal</Name>
+            <Condition>None</Condition>
           </DependencyItem>
         </Items>
       </Dependencies>
@@ -680,6 +689,7 @@ Dutch language support for secondary scraper-script data.</VersionDescription>
         <OnlineLocation>http://imdbplus.googlecode.com/files/imdbplus.plugin.v1.3.0.188.mpe1</OnlineLocation>
         <ReleaseDate>2011-10-30T17:10:24</ReleaseDate>
         <Tags>moving pictures, movies, scraper</Tags>
+        <PlatformCompatibility>x86</PlatformCompatibility>
         <Location>.\Release\imdbplus.plugin.v[Version].mpe1</Location>
         <Params>
           <Items>
@@ -779,20 +789,21 @@ Dutch language support for secondary scraper-script data.</VersionDescription>
             <Type>MediaPortal</Type>
             <Id />
             <MinVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MinVersion>
             <MaxVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MaxVersion>
             <WarnOnly>false</WarnOnly>
             <Message>Minimum requirements not met! Please upgrade to MediaPortal 1.2 before installing IMDb+ plugin.</Message>
             <Name>MediaPortal</Name>
+            <Condition>None</Condition>
           </DependencyItem>
         </Items>
       </Dependencies>
@@ -832,6 +843,7 @@ Dutch language support for secondary scraper-script data.</VersionDescription>
         <OnlineLocation>http://imdbplus.googlecode.com/files/imdbplus.plugin.v1.4.0.202.mpe1</OnlineLocation>
         <ReleaseDate>2011-11-27T16:33:11</ReleaseDate>
         <Tags>moving pictures, movies, scraper</Tags>
+        <PlatformCompatibility>x86</PlatformCompatibility>
         <Location>.\Release\imdbplus.plugin.v[Version].mpe1</Location>
         <Params>
           <Items>
@@ -931,20 +943,21 @@ Dutch language support for secondary scraper-script data.</VersionDescription>
             <Type>MediaPortal</Type>
             <Id />
             <MinVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MinVersion>
             <MaxVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MaxVersion>
             <WarnOnly>false</WarnOnly>
             <Message>Minimum requirements not met! Please upgrade to MediaPortal 1.2 before installing IMDb+ plugin.</Message>
             <Name>MediaPortal</Name>
+            <Condition>None</Condition>
           </DependencyItem>
         </Items>
       </Dependencies>
@@ -986,6 +999,7 @@ This version includes IMDb+ scraper-script v4.1.8 by default which will auto upd
         <OnlineLocation>https://raw.githubusercontent.com/RoChess/IMDbPlus/master/IMDb%2B/Images/imdb_icon.png</OnlineLocation>
         <ReleaseDate>2012-01-20T15:06:46</ReleaseDate>
         <Tags>moving pictures, movies, scraper</Tags>
+        <PlatformCompatibility>x86</PlatformCompatibility>
         <Location>.\Release\imdbplus.plugin.v[Version].mpe1</Location>
         <Params>
           <Items>
@@ -1085,20 +1099,21 @@ This version includes IMDb+ scraper-script v4.1.8 by default which will auto upd
             <Type>MediaPortal</Type>
             <Id />
             <MinVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MinVersion>
             <MaxVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MaxVersion>
             <WarnOnly>false</WarnOnly>
             <Message>Minimum requirements not met! Please upgrade to MediaPortal 1.2 before installing IMDb+ plugin.</Message>
             <Name>MediaPortal</Name>
+            <Condition>None</Condition>
           </DependencyItem>
         </Items>
       </Dependencies>
@@ -1144,6 +1159,7 @@ and a new version is available.</VersionDescription>
         <OnlineLocation>http://imdbplus.googlecode.com/files/imdbplus.plugin.v1.5.0.250.mpe1</OnlineLocation>
         <ReleaseDate>2012-01-28T02:33:31</ReleaseDate>
         <Tags>moving pictures, movies, scraper</Tags>
+        <PlatformCompatibility>x86</PlatformCompatibility>
         <Location>.\Release\imdbplus.plugin.v[Version].mpe1</Location>
         <Params>
           <Items>
@@ -1251,20 +1267,21 @@ and a new version is available.</VersionDescription>
             <Type>MediaPortal</Type>
             <Id />
             <MinVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MinVersion>
             <MaxVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MaxVersion>
             <WarnOnly>false</WarnOnly>
             <Message>Minimum requirements not met! Please upgrade to MediaPortal 1.2 before installing IMDb+ plugin.</Message>
             <Name>MediaPortal</Name>
+            <Condition>None</Condition>
           </DependencyItem>
         </Items>
       </Dependencies>
@@ -1309,6 +1326,7 @@ and a new version is available.</VersionDescription>
         <OnlineLocation>http://imdbplus.googlecode.com/files/imdbplus.plugin.v2.0.0.281.mpe1</OnlineLocation>
         <ReleaseDate>2012-04-22T16:02:11</ReleaseDate>
         <Tags>moving pictures, movies, scraper</Tags>
+        <PlatformCompatibility>x86</PlatformCompatibility>
         <Location>.\Release\imdbplus.plugin.v[Version].mpe1</Location>
         <Params>
           <Items>
@@ -1416,20 +1434,21 @@ and a new version is available.</VersionDescription>
             <Type>MediaPortal</Type>
             <Id />
             <MinVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MinVersion>
             <MaxVersion>
-              <Major>1</Major>
-              <Minor>1</Minor>
-              <Build>6</Build>
-              <Revision>27644</Revision>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
             </MaxVersion>
             <WarnOnly>false</WarnOnly>
             <Message>Minimum requirements not met! Please upgrade to MediaPortal 1.2 before installing IMDb+ plugin.</Message>
             <Name>MediaPortal</Name>
+            <Condition>None</Condition>
           </DependencyItem>
         </Items>
       </Dependencies>
@@ -1475,6 +1494,7 @@ and a new version is available.</VersionDescription>
         <OnlineLocation>https://github.com/RoChess/IMDbPlus/releases/download/2.1.0/imdbplus.plugin.v2.1.0.291.mpe1</OnlineLocation>
         <ReleaseDate>2016-02-06T17:58:49</ReleaseDate>
         <Tags>moving pictures, movies, scraper</Tags>
+        <PlatformCompatibility>x86</PlatformCompatibility>
         <Location>.\Release\imdbplus.plugin.v[Version].mpe1</Location>
         <Params>
           <Items>
@@ -1492,6 +1512,166 @@ and a new version is available.</VersionDescription>
             </SectionParam>
             <SectionParam Name="Online Screenshots">
               <Value>https://rochess.com/mp/Plugin.IMDb+.jpg;https://rochess.com/mp/Plugin.IMDb+.StreamedMP.jpg</Value>
+              <ValueType>String</ValueType>
+              <Description>Online stored screenshot urls separated by ; </Description>
+            </SectionParam>
+            <SectionParam Name="Force to uninstall on update">
+              <Value>YES</Value>
+              <ValueType>Bool</ValueType>
+              <Description>Show dialog and force to uninstall previous version when updating an extension. Should only be disabled if you are using an NSIS/MSI installer.</Description>
+            </SectionParam>
+          </Items>
+        </Params>
+      </GeneralInfo>
+      <UniqueFileList>
+        <Items />
+      </UniqueFileList>
+      <ProjectSettings>
+        <FolderGroups />
+      </ProjectSettings>
+      <IsSkin>false</IsSkin>
+    </PackageClass>
+    <PackageClass>
+      <Version>2.0</Version>
+      <Groups>
+        <Items>
+          <GroupItem Name="Default">
+            <DisplayName>Default</DisplayName>
+            <DefaulChecked>true</DefaulChecked>
+            <Description>Default</Description>
+            <Files>
+              <Items />
+            </Files>
+          </GroupItem>
+          <GroupItem Name="Language">
+            <DisplayName>Language</DisplayName>
+            <DefaulChecked>true</DefaulChecked>
+            <Description>Language</Description>
+            <Files>
+              <Items />
+            </Files>
+          </GroupItem>
+          <GroupItem Name="Skins">
+            <DisplayName>Skins</DisplayName>
+            <DefaulChecked>true</DefaulChecked>
+            <Description>Skins</Description>
+            <Files>
+              <Items />
+            </Files>
+          </GroupItem>
+          <GroupItem Name="Configuration">
+            <DisplayName>Configuration</DisplayName>
+            <DefaulChecked>true</DefaulChecked>
+            <Description>Configuration</Description>
+            <Files>
+              <Items />
+            </Files>
+          </GroupItem>
+          <GroupItem Name="Settings">
+            <DisplayName>Settings</DisplayName>
+            <DefaulChecked>false</DefaulChecked>
+            <Description>Settings</Description>
+            <Files>
+              <Items />
+            </Files>
+          </GroupItem>
+          <GroupItem Name="Scraper">
+            <DisplayName>Scraper</DisplayName>
+            <DefaulChecked>true</DefaulChecked>
+            <Description>Scraper</Description>
+            <Files>
+              <Items />
+            </Files>
+          </GroupItem>
+        </Items>
+      </Groups>
+      <Sections>
+        <Items />
+      </Sections>
+      <Dependencies>
+        <Items>
+          <DependencyItem>
+            <Type>MediaPortal</Type>
+            <Id />
+            <MinVersion>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
+            </MinVersion>
+            <MaxVersion>
+              <Major>*</Major>
+              <Minor>*</Minor>
+              <Build>*</Build>
+              <Revision>*</Revision>
+            </MaxVersion>
+            <WarnOnly>false</WarnOnly>
+            <Message />
+            <Name>MediaPortal</Name>
+            <Condition>None</Condition>
+          </DependencyItem>
+        </Items>
+      </Dependencies>
+      <PluginDependencies>
+        <Items>
+          <PluginDependencyItem AssemblyName="IMDb+.dll">
+            <CompatibleVersion>
+              <Items>
+                <CompatibleVersionItem>
+                  <MinRequiredVersion>1.1.6.27644</MinRequiredVersion>
+                  <DesignedForVersion>1.1.6.27644</DesignedForVersion>
+                </CompatibleVersionItem>
+              </Items>
+            </CompatibleVersion>
+            <SubSystemsUsed>
+              <Items />
+            </SubSystemsUsed>
+          </PluginDependencyItem>
+        </Items>
+      </PluginDependencies>
+      <GeneralInfo>
+        <Name>IMDb+</Name>
+        <Id>9d064213-0b4d-4cee-96a5-405812422b58</Id>
+        <Author>RoChess</Author>
+        <HomePage>https://github.com/RoChess/IMDbPlus</HomePage>
+        <ForumPage>http://forum.team-mediaportal.com/forums/imdb.554/</ForumPage>
+        <UpdateUrl>https://raw.githubusercontent.com/Mediaportal-Plugin-Team/IMDbPlus/master/MPEI/update.xml</UpdateUrl>
+        <Version>
+          <Major>2</Major>
+          <Minor>1</Minor>
+          <Build>0</Build>
+          <Revision>537</Revision>
+        </Version>
+        <ExtensionDescription>The IMDb+ plugin and scraper for MovingPictures will make your movie collection easier to use. The plugin will keep the scraper script up-to-date, and add powerful features such as rename and grouping of movie series. It also corrects English titles, allows RottenTomatoes ratings, and many other features.</ExtensionDescription>
+        <VersionDescription>This version includes IMDb+ scraper-script v4.9.53 by default
+
+which will auto update once IMDb+ plugin runs for the first time
+
+and a new version is available.
+
+x86/x64 AnyCPU Version</VersionDescription>
+        <DevelopmentStatus>Stable</DevelopmentStatus>
+        <OnlineLocation>https://github.com/Mediaportal-Plugin-Team/IMDbPlus/releases/download/v2.1.0.537/IMDBPlus-v2.1.0.537.mpe1</OnlineLocation>
+        <ReleaseDate>2024-05-19T13:45:30.6116649+00:00</ReleaseDate>
+        <Tags>moving pictures, movies, scraper</Tags>
+        <PlatformCompatibility>AnyCPU</PlatformCompatibility>
+        <Location>.\Release\IMDBPlus-v[Version].mpe1</Location>
+        <Params>
+          <Items>
+            <SectionParam Name="Online Icon">
+              <Value>https://raw.githubusercontent.com/RoChess/IMDbPlus/master/IMDb%2B/Images/imdb_icon.png</Value>
+              <ValueType>String</ValueType>
+              <Description>The icon file of the package stored online (jpg,png,bmp)</Description>
+            </SectionParam>
+            <SectionParam Name="Configuration file">
+              <Value />
+              <ValueType>Template</ValueType>
+              <Description>The file used to configure the extension.
+ If have .exe extension the will be executed
+ If have .dll extension used like MP plugin configuration</Description>
+            </SectionParam>
+            <SectionParam Name="Online Screenshots">
+              <Value>http://blixy.net/mp/Plugin.IMDb+.jpg;http://blixy.net/mp/Plugin.IMDb+.StreamedMP.jpg</Value>
               <ValueType>String</ValueType>
               <Description>Online stored screenshot urls separated by ; </Description>
             </SectionParam>

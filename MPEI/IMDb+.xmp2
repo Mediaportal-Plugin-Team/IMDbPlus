@@ -838,7 +838,7 @@ and a new version is available.
 x86/x64 AnyCPU Version</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>https://github.com/Mediaportal-Plugin-Team/IMDbPlus/releases/download/v[Version]/IMDBPlus-v[Version].mpe1</OnlineLocation>
-    <ReleaseDate>2024-05-19T16:16:52</ReleaseDate>
+    <ReleaseDate>2024-05-19T16:16:16</ReleaseDate>
     <Tags>moving pictures, movies, scraper</Tags>
     <PlatformCompatibility>AnyCPU</PlatformCompatibility>
     <Location>.\Release\IMDBPlus-v[Version].mpe1</Location>

@@ -475,40 +475,6 @@ Click Next to continue or Cancel to exit Setup.</Value>
         <PanelName>Welcome Screen</PanelName>
         <WizardButtonsEnum>NextCancel</WizardButtonsEnum>
       </SectionItem>
-      <SectionItem Guid="3062fa2c-11bc-4846-aae3-636214e8b01b" Name="MediaInfo" ConditionGroup="" Condition="None">
-        <Params>
-          <Items>
-            <SectionParam Name="Header Title">
-              <Value>Update the MediaInfo DLL Library</Value>
-              <ValueType>String</ValueType>
-              <Description>Header title</Description>
-            </SectionParam>
-            <SectionParam Name="Header description">
-              <Value>The MediaInfo DLL library is used by MediaPortal and many plugins such as Moving-Pictures to gather codec, runtime and other info from mediafiles.</Value>
-              <ValueType>String</ValueType>
-              <Description>Description of section, shown in under section title</Description>
-            </SectionParam>
-            <SectionParam Name="Header image">
-              <Value>..\IMDb+\Images\imdb_icon.png</Value>
-              <ValueType>File</ValueType>
-              <Description>Image in upper right part</Description>
-            </SectionParam>
-            <SectionParam Name="Description ">
-              <Value>The IMDb+ plugin will update this DLL if the version you have is an older one. This will then avoid possible issues when Moving-Pictures imports new movies via the IMDb+ scraper-script.</Value>
-              <ValueType>String</ValueType>
-              <Description>Description of this operation</Description>
-            </SectionParam>
-          </Items>
-        </Params>
-        <Actions>
-          <Items />
-        </Actions>
-        <IncludedGroups>
-          <string>MediaInfo</string>
-        </IncludedGroups>
-        <PanelName>Tree View Selector</PanelName>
-        <WizardButtonsEnum>BackNextCancel</WizardButtonsEnum>
-      </SectionItem>
       <SectionItem Guid="0c9e930e-8075-4eeb-8a7b-da016180427c" Name="Install Section" ConditionGroup="" Condition="None">
         <Params>
           <Items>
@@ -1251,21 +1217,21 @@ x86/x64 AnyCPU Version</VersionDescription>
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>Resources\sidebar.jpg</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{92e2dfaf-bd52-4c93-8bdf-b04671b8f01e}-sidebar.jpg</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{16b2f5c9-b9bf-4769-9b83-304e5d891924}-sidebar.jpg</ZipFileName>
         <DestinationFilename />
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>Resources\header.jpg</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{34c0c809-7ffe-4376-ae96-c1e41f8443ef}-header.jpg</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{6966c6e4-a6f1-44fc-86a1-062f1ab75f8e}-header.jpg</ZipFileName>
         <DestinationFilename />
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\IMDb+\Images\imdb_icon.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{c01286c2-af58-4718-a025-a54dbac0d1d2}-imdb_icon.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{b9afc2a9-f43c-4ffd-b369-a3359cebad1f}-imdb_icon.png</ZipFileName>
         <DestinationFilename />
       </FileItem>
     </Items>

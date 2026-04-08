@@ -1,0 +1,55 @@
+<!--
+	Syntax example for movie "Casino Royale":
+
+		1. Rename only title:	<rename id="tt0381061" title="James Bond 21: Casino Royale" />
+
+		2. Rename only sortby:	<rename id="tt0381061" sortby="James Bond 21" />
+
+		3. Rename both:		<rename id="tt0381061" title="007: Casino Royale" sortby="James Bond 21" />
+
+	The rename on both is now done by default on all series that have 9 or more entries in the collection,
+	because	Roman Numerals stop sorting correct after VIII (8), since IX (9) would get sorted after IV (4).
+
+		4. Foreign titles:	<rename id="tt0089374" title="Police Story I" foreign="Ging chat goo si" />
+
+	This can be used in combination with the IMDb+ scraper option to display foreign title alongside English title.
+
+	New Tag:
+
+		5. Collections:		<rename id="tt0240772" title="Ocean's I: Eleven" collection="Ocean's Trilogy" />
+
+	With no 'collection' specified, it will be auto-reduced from the 'title' by stripping it from Roman numerals.
+
+	Full syntax order:
+
+		<rename id="tt...." title="Optional" foreign="Optional" sortby="Optional" collection="Optional" />
+
+	If you make any changes to this file yourself, be sure to run an XML syntax verificiation check.
+	You can use the following site for this: https://www.xmlvalidation.com/
+
+	Enjoy.
+-->
+<imdbplus>
+	<details>
+		<name>IMDb+ Scraper Script Rename dBase</name>
+		<author>KJ-Cox</author>
+		<description>For use in MovingPictures plugin for MediaPortal</description>
+		<version major="1" minor="0" point="0" />
+		<published month="04" day="08" year="2026" />
+		<type>RenameDefault</type>
+		<language>en</language>
+	</details>
+	<rename id="tt0060155" sortby="Batman #01" />
+	<rename id="tt0072759" sortby="Batman #02" />
+	<rename id="tt0083658" sortby="Batman #03" />
+	<rename id="tt0096895" sortby="Batman #04" />
+	<rename id="tt0103776" sortby="Batman #05" />
+	<rename id="tt0103777" sortby="Batman #06" />
+	<rename id="tt0112462" sortby="Batman #07" />
+	<rename id="tt0120915" sortby="Star Wars 01" />
+	<rename id="tt0121765" sortby="Star Wars 02" />
+	<rename id="tt0121766" sortby="Star Wars 03" />
+	<rename id="tt0076759" sortby="Star Wars 04" />
+	<rename id="tt0080684" sortby="Star Wars 05" />
+	<rename id="tt0086190" sortby="Star Wars 06" />
+</imdbplus>

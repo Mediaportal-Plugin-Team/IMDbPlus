@@ -396,6 +396,13 @@
               <ZipFileName>Installer{CopyFile}\{bb14fa6f-216c-4880-a3eb-adb0ef8f47cd}-Options IMDb+ Scraper.xml</ZipFileName>
               <DestinationFilename>%Config%\IMDb+\Options IMDb+ Scraper.xml</DestinationFilename>
             </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\Rename dBase IMDb+ Scraper (Base).xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{0f456d88-33a2-4c21-b514-11087b85a377}-Rename dBase IMDb+ Scraper (Base).xml</ZipFileName>
+              <DestinationFilename>%Config%\IMDb+\Rename dBase IMDb+ Scraper (Base).xml</DestinationFilename>
+            </FileItem>
           </Items>
         </Files>
       </GroupItem>
@@ -559,6 +566,10 @@ public class Script
 			source = @"C:\Rename dBase IMDb+ Scraper (Custom).xml";
 			destination = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper (Custom).xml");
 			Upgrade(source, destination);
+
+			source = @"C:\Rename dBase IMDb+ Scraper (Base).xml";
+			destination = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper (Base).xml");
+			Upgrade(source, destination);
 		}
 		catch {}
     
@@ -666,6 +677,10 @@ public class Script
 			newValue = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper (Custom).xml");
 			source.SelectedScript.Contents = source.SelectedScript.Contents.Replace(oldValue, newValue);
 
+			oldValue = @"C:\Rename dBase IMDb+ Scraper (Base).xml";
+			newValue = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper (Base).xml");
+			source.SelectedScript.Contents = source.SelectedScript.Contents.Replace(oldValue, newValue);
+
 			oldValue = @"C:\Options IMDb+ Scraper.xml";
 			newValue = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Options IMDb+ Scraper.xml");
 			source.SelectedScript.Contents = source.SelectedScript.Contents.Replace(oldValue, newValue);
@@ -765,21 +780,7 @@ public class Script
     </Items>
   </Dependencies>
   <PluginDependencies>
-    <Items>
-      <PluginDependencyItem AssemblyName="IMDb+.dll">
-        <CompatibleVersion>
-          <Items>
-            <CompatibleVersionItem>
-              <MinRequiredVersion>1.1.6.27644</MinRequiredVersion>
-              <DesignedForVersion>1.1.6.27644</DesignedForVersion>
-            </CompatibleVersionItem>
-          </Items>
-        </CompatibleVersion>
-        <SubSystemsUsed>
-          <Items />
-        </SubSystemsUsed>
-      </PluginDependencyItem>
-    </Items>
+    <Items />
   </PluginDependencies>
   <GeneralInfo>
     <Name>IMDb+</Name>
@@ -1198,6 +1199,13 @@ x86/x64 AnyCPU Version</VersionDescription>
         <LocalFileName>..\Options IMDb+ Scraper.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{bb14fa6f-216c-4880-a3eb-adb0ef8f47cd}-Options IMDb+ Scraper.xml</ZipFileName>
         <DestinationFilename>%Config%\IMDb+\Options IMDb+ Scraper.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\Rename dBase IMDb+ Scraper (Base).xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{0f456d88-33a2-4c21-b514-11087b85a377}-Rename dBase IMDb+ Scraper (Base).xml</ZipFileName>
+        <DestinationFilename>%Config%\IMDb+\Rename dBase IMDb+ Scraper (Base).xml</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
         <Param1 />

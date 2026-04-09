@@ -348,11 +348,11 @@
 			</if>
 
 			<!-- PRIMARY COUNTRY BLOCK -->
-			<set name="rx_country_block"><![CDATA["iso_3166_1":"${target_country}"[^}]*"release_dates":\[(.*?)\]]]></set>
+			<set name="rx_country_block"><![CDATA["iso_3166_1":"${target_country}".+?"release_dates":\[(.*?)\]\s*\}]]></set>
 			<parse name="country_block" input="${release_page}" regex="${rx_country_block}" />
 
 			<!-- FALLBACK COUNTRY (US) -->
-			<set name="rx_country_block_us"><![CDATA["iso_3166_1":"US"[^}]*"release_dates":\[(.*?)\]]]></set>
+			<set name="rx_country_block_us"><![CDATA["iso_3166_1":"US".+?"release_dates":\[(.*?)\]\s*\}]]></set>
 			<parse name="country_block_us" input="${release_page}" regex="${rx_country_block_us}" />
 
 			<if test="${movie.certification}=">
@@ -376,41 +376,43 @@
 				<if test="${cert_all[0][0]}!=">
 					<set name="cert_clean" value="${cert_all[0][0]}" />
 				</if>
-				<if test="${cert_clean}=&amp;&amp;${cert_all[1][0]}!=">
+				<if test="${cert_clean}=">
 					<set name="cert_clean" value="${cert_all[1][0]}" />
 				</if>
-				<if test="${cert_clean}=&amp;&amp;${cert_all[2][0]}!=">
+				<if test="${cert_clean}=">
 					<set name="cert_clean" value="${cert_all[2][0]}" />
 				</if>
-				<if test="${cert_clean}=&amp;&amp;${cert_all[3][0]}!=">
+				<if test="${cert_clean}=">
 					<set name="cert_clean" value="${cert_all[3][0]}" />
 				</if>
-				<if test="${cert_clean}=&amp;&amp;${cert_all[4][0]}!=">
+				<if test="${cert_clean}=">
 					<set name="cert_clean" value="${cert_all[4][0]}" />
 				</if>
 
 				<!-- ========================= -->
 				<!-- FALLBACK TO US IF AU EMPTY -->
 				<!-- ========================= -->
-				<if test="${cert_clean}=&amp;&amp;${target_country}=AU">
-					<log LogLevel="Debug" Message="FALLBACK: AU empty, using US certification" />
+				<if test="${cert_clean}=">
+					<if test="${target_country}=AU">
+						<log LogLevel="Debug" Message="FALLBACK: AU empty, using US certification" />
 
-					<parse name="cert_all_us" input="${country_block_us}" regex="${rx_cert}" />
+						<parse name="cert_all_us" input="${country_block_us}" regex="${rx_cert}" />
 
-					<if test="${cert_all_us[0][0]}!=">
-						<set name="cert_clean" value="${cert_all_us[0][0]}" />
-					</if>
-					<if test="${cert_clean}=&amp;&amp;${cert_all_us[1][0]}!=">
-						<set name="cert_clean" value="${cert_all_us[1][0]}" />
-					</if>
-					<if test="${cert_clean}=&amp;&amp;${cert_all_us[2][0]}!=">
-						<set name="cert_clean" value="${cert_all_us[2][0]}" />
-					</if>
-					<if test="${cert_clean}=&amp;&amp;${cert_all_us[3][0]}!=">
-						<set name="cert_clean" value="${cert_all_us[3][0]}" />
-					</if>
-					<if test="${cert_clean}=&amp;&amp;${cert_all_us[4][0]}!=">
-						<set name="cert_clean" value="${cert_all_us[4][0]}" />
+						<if test="${cert_all_us[0][0]}!=">
+							<set name="cert_clean" value="${cert_all_us[0][0]}" />
+						</if>
+						<if test="${cert_clean}=">
+							<set name="cert_clean" value="${cert_all_us[1][0]}" />
+						</if>
+						<if test="${cert_clean}=">
+							<set name="cert_clean" value="${cert_all_us[2][0]}" />
+						</if>
+						<if test="${cert_clean}=">
+							<set name="cert_clean" value="${cert_all_us[3][0]}" />
+						</if>
+						<if test="${cert_clean}=">
+							<set name="cert_clean" value="${cert_all_us[4][0]}" />
+						</if>
 					</if>
 				</if>
 
@@ -421,6 +423,9 @@
 				<set name="movie.certification" value="${cert_clean}" />
 
 				<log LogLevel="Info" Message="CERTIFICATION (${target_country}): ${cert_clean}" />
+
+				<log LogLevel="Debug" Message="COUNTRY BLOCK: ${country_block}" />
+				<log LogLevel="Debug" Message="US BLOCK: ${country_block_us}" />
 			</if>
 
 			<!-- ========================================================= -->

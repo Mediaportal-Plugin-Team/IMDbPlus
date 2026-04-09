@@ -5,7 +5,7 @@
 	<set id="04" name="global_options_uk_rating"		value="false" />
 	<set id="05" name="global_options_imdb_score"		value="false" />
 	<set id="06" name="global_options_imdb_metascore"	value="false" />
-	<set id="07" name="global_options_long_summary"		value="false" />
+	<set id="07" name="global_options_long_summary"		value="true" />
 	<set id="08" name="global_options_rotten_meter"		value="false" />
 	<set id="09" name="global_options_rotten_average"	value="false" />
 	<set id="10" name="global_options_rotten_top_critics"	value="false" />

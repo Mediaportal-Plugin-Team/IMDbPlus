@@ -50,8 +50,8 @@ namespace IMDb
 
         #region Constants
 
-        const string ScraperUpdateFile = @"https://raw.githubusercontent.com/RoChess/IMDbPlus/master/Scraper/IMDb%2B.Scraper.SVN.xml";
-        const string ReplacementsUpdateFile = @"https://raw.githubusercontent.com/RoChess/IMDbPlus/master/Rename%20dBase%20IMDb%2B%20Scraper.xml";
+        const string ScraperUpdateFile = @"https://raw.githubusercontent.com/Mediaportal-Plugin-Team/IMDbPlus/master/Scraper/IMDb%2B.Scraper.SVN.xml";
+        const string ReplacementsUpdateFile = @"https://raw.githubusercontent.com/Mediaportal-Plugin-Team/IMDbPlus/master/Rename%20dBase%20IMDb%2B%20Scraper.xml";
         const int IMDbPlusScriptId = 314159265;
         const int IMDbScriptId = 874902;
         #endregion
@@ -840,6 +840,10 @@ namespace IMDb
 
             oldValue = @"C:\Rename dBase IMDb+ Scraper (Custom).xml";
             newValue = Path.Combine(Config.GetFolder(Config.Dir.Config), @"IMDb+\Rename dBase IMDb+ Scraper (Custom).xml");
+            contents = contents.Replace(oldValue, newValue);
+
+            oldValue = @"C:\Rename dBase IMDb+ Scraper (Base).xml";
+            newValue = Path.Combine(Config.GetFolder(Config.Dir.Config), @"IMDb+\Rename dBase IMDb+ Scraper (Base).xml");
             contents = contents.Replace(oldValue, newValue);
 
             oldValue = @"C:\Options IMDb+ Scraper.xml";

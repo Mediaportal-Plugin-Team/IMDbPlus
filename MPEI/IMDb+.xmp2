@@ -796,7 +796,7 @@ public class Script
       <Revision>0</Revision>
     </Version>
     <ExtensionDescription>The IMDb+ plugin and scraper for MovingPictures will make your movie collection easier to use. The plugin will keep the scraper script up-to-date, and add powerful features such as rename and grouping of movie series. It also corrects English titles, allows RottenTomatoes ratings, and many other features.</ExtensionDescription>
-    <VersionDescription>This version includes IMDb+ scraper-script v4.9.53 by default
+    <VersionDescription>This version includes IMDb+ scraper-script v5.0.0 by default
 
 which will auto update once IMDb+ plugin runs for the first time
 
@@ -805,7 +805,7 @@ and a new version is available.
 x86/x64 AnyCPU Version</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>https://github.com/Mediaportal-Plugin-Team/IMDbPlus/releases/download/v[Version]/IMDBPlus-v[Version].mpe1</OnlineLocation>
-    <ReleaseDate>2024-05-19T16:16:16</ReleaseDate>
+    <ReleaseDate>2026-04-09T23:44:16</ReleaseDate>
     <Tags>moving pictures, movies, scraper</Tags>
     <PlatformCompatibility>AnyCPU</PlatformCompatibility>
     <Location>.\Release\IMDBPlus-v[Version].mpe1</Location>

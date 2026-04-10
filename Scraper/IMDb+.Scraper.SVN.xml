@@ -4,8 +4,8 @@
 		<author>KJ-Cox</author>
 		<description>TMDb Advanced Movie Title Renaming Script (Collections + Smart Titles)</description>
 		<id>314159265</id>
-		<version major="5" minor="0" point="0" />
-		<published month="04" day="08" year="2026" />
+		<version major="5" minor="0" point="1" />
+		<published month="04" day="10" year="2026" />
 		<type>MovieDetailsFetcher|MovieCoverFetcher|MovieBackdropFetcher</type>
 		<language>en</language>
 	</details>
@@ -514,8 +514,9 @@
 				<!-- TITLE -->
 				<if test="${rename_custom_match[0][0]}!=">
 					<set name="title_final" value="${rename_custom_match[0][0]:htmldecode}" />
+					<set name="xml_has_title" value="true" />
 				</if>
-				<if test="${title_final}=">
+				<if test="${xml_has_title}!=true">
 					<if test="${rename_default_match[0][0]}!=">
 						<set name="title_final" value="${rename_default_match[0][0]:htmldecode}" />
 						<set name="xml_has_title" value="true" />
@@ -525,8 +526,9 @@
 				<!-- SORTBY -->
 				<if test="${rename_custom_match[0][2]}!=">
 					<set name="sortby_final" value="${rename_custom_match[0][2]:htmldecode}" />
+					<set name="xml_has_sortby" value="true" />
 				</if>
-				<if test="${sortby_final}=">
+				<if test="${xml_has_sortby}!=true">
 					<if test="${rename_default_match[0][2]}!=">
 						<set name="sortby_final" value="${rename_default_match[0][2]:htmldecode}" />
 						<set name="xml_has_sortby" value="true" />
@@ -536,8 +538,9 @@
 				<!-- COLLECTION -->
 				<if test="${rename_custom_match[0][3]}!=">
 					<set name="collection_final" value="|${rename_custom_match[0][3]:htmldecode}|" />
+					<set name="xml_has_collection" value="true" />
 				</if>
-				<if test="${collection_final}=">
+				<if test="${xml_has_collection}!=true">
 					<if test="${rename_default_match[0][3]}!=">
 						<set name="collection_final" value="|${rename_default_match[0][3]:htmldecode}|" />
 						<set name="xml_has_collection" value="true" />

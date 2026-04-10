@@ -786,7 +786,7 @@ public class Script
     <Name>IMDb+</Name>
     <Id>9d064213-0b4d-4cee-96a5-405812422b58</Id>
     <Author>RoChess</Author>
-    <HomePage>https://github.com/RoChess/IMDbPlus</HomePage>
+    <HomePage>https://github.com/Mediaportal-Plugin-Team/IMDbPlus</HomePage>
     <ForumPage>http://forum.team-mediaportal.com/forums/imdb.554/</ForumPage>
     <UpdateUrl>https://raw.githubusercontent.com/Mediaportal-Plugin-Team/IMDbPlus/master/MPEI/update.xml</UpdateUrl>
     <Version>
@@ -817,7 +817,7 @@ x86/x64 AnyCPU Version</VersionDescription>
           <Description>The icon file of the package (jpg,png,bmp)</Description>
         </SectionParam>
         <SectionParam Name="Online Icon">
-          <Value>https://raw.githubusercontent.com/RoChess/IMDbPlus/master/IMDb%2B/Images/imdb_icon.png</Value>
+          <Value>https://raw.githubusercontent.com/Mediaportal-Plugin-Team/IMDbPlus/master/IMDb%2B/Images/imdb_icon.png</Value>
           <ValueType>String</ValueType>
           <Description>The icon file of the package stored online (jpg,png,bmp)</Description>
         </SectionParam>

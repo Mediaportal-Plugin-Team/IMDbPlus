@@ -535,10 +535,10 @@ public class Script
 		try
 		{
 			// Load Assemblies
-			Assembly.LoadFrom(Path.Combine(MpeInstaller.TransformInRealPath("%Plugins%"), @"Windows\MovingPictures.dll"));
+			Assembly.LoadFrom(Path.Combine(MpeCore.MpeInstaller.TransformInRealPath("%Plugins%"), @"Windows\MovingPictures.dll"));
       
 			// Instal Scraper Script
-			string xmlFile = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\IMDb+.Scraper.SVN.xml");
+			string xmlFile = Path.Combine(MpeCore.MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\IMDb+.Scraper.SVN.xml");
 
 			// Check if already installed.
 			if (!IsScraperInstalled())
@@ -556,19 +556,19 @@ public class Script
       
 			// check if we have old configuration files to move to new directory
 			string source = @"C:\Options IMDb+ Scraper.xml";
-			string destination = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Options IMDb+ Scraper.xml");
+			string destination = Path.Combine(MpeCore.MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Options IMDb+ Scraper.xml");
 			Upgrade(source, destination);
 
 			source = @"C:\Rename dBase IMDb+ Scraper.xml";
-			destination = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper.xml");
+			destination = Path.Combine(MpeCore.MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper.xml");
 			Upgrade(source, destination);
 
 			source = @"C:\Rename dBase IMDb+ Scraper (Custom).xml";
-			destination = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper (Custom).xml");
+			destination = Path.Combine(MpeCore.MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper (Custom).xml");
 			Upgrade(source, destination);
 
 			source = @"C:\Rename dBase IMDb+ Scraper (Base).xml";
-			destination = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper (Base).xml");
+			destination = Path.Combine(MpeCore.MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper (Base).xml");
 			Upgrade(source, destination);
 		}
 		catch {}
@@ -670,19 +670,19 @@ public class Script
 			if (source == null) return;
 
 			string oldValue = @"C:\Rename dBase IMDb+ Scraper.xml";
-			string newValue = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper.xml");
+			string newValue = Path.Combine(MpeCore.MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper.xml");
 			source.SelectedScript.Contents = source.SelectedScript.Contents.Replace(oldValue, newValue);
 
 			oldValue = @"C:\Rename dBase IMDb+ Scraper (Custom).xml";
-			newValue = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper (Custom).xml");
+			newValue = Path.Combine(MpeCore.MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper (Custom).xml");
 			source.SelectedScript.Contents = source.SelectedScript.Contents.Replace(oldValue, newValue);
 
 			oldValue = @"C:\Rename dBase IMDb+ Scraper (Base).xml";
-			newValue = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper (Base).xml");
+			newValue = Path.Combine(MpeCore.MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Rename dBase IMDb+ Scraper (Base).xml");
 			source.SelectedScript.Contents = source.SelectedScript.Contents.Replace(oldValue, newValue);
 
 			oldValue = @"C:\Options IMDb+ Scraper.xml";
-			newValue = Path.Combine(MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Options IMDb+ Scraper.xml");
+			newValue = Path.Combine(MpeCore.MpeInstaller.TransformInRealPath("%Config%"), @"IMDb+\Options IMDb+ Scraper.xml");
 			source.SelectedScript.Contents = source.SelectedScript.Contents.Replace(oldValue, newValue);
 
 			source.SelectedScript.Commit();
@@ -796,13 +796,11 @@ public class Script
       <Revision>0</Revision>
     </Version>
     <ExtensionDescription>The IMDb+ plugin and scraper for MovingPictures will make your movie collection easier to use. The plugin will keep the scraper script up-to-date, and add powerful features such as rename and grouping of movie series. It also corrects English titles, allows RottenTomatoes ratings, and many other features.</ExtensionDescription>
-    <VersionDescription>This version includes IMDb+ scraper-script v5.0.0 by default
+    <VersionDescription>* Ready for 1.39 Release
 
-which will auto update once IMDb+ plugin runs for the first time
+* This version includes IMDb+ scraper-script v5.0.0 by default which will auto update once IMDb+ plugin runs for the first time and a new version is available.
 
-and a new version is available.
-
-x86/x64 AnyCPU Version</VersionDescription>
+* x86/x64 AnyCPU Version</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>https://github.com/Mediaportal-Plugin-Team/IMDbPlus/releases/download/v[Version]/IMDBPlus-v[Version].mpe1</OnlineLocation>
     <ReleaseDate>2026-04-09T23:44:16</ReleaseDate>
